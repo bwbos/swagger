@@ -37,3 +37,24 @@ definitions:
         description: Identifier of the resource in Guid format
         type: string
         format: uuid
+        
+  PatchDocument:
+    type: object
+    x-ignore: true
+    description: Generic patch model exposed by API framework
+    properties:
+      value:
+        description: value of the property
+        type: object
+      path:
+        description: path of the property
+        type: string
+      op:
+        description: operation to be performed.
+        type: string
+        example: one of these (add, remove, replace, test, copy, move)
+      from:
+        description: used for copy or move operations
+        type: string
+    example:
+      { "op": "replace", "path": "/age", "value": 10}
